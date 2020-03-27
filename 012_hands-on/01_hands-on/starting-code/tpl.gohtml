@@ -10,6 +10,7 @@
 {{range .}}
 
     <li> {{.AcaYear}} </li>
+    {{if .Fall.Term}}
     <ul>
         <li> {{.Fall.Term}} </li>
         <ul>
@@ -22,6 +23,8 @@
             {{end}}
         </ul>
     </ul>
+    {{end}}
+    {{if .Spring.Term}}
     <ul>
         <li> {{.Spring.Term}} </li>
         <ul>
@@ -33,6 +36,7 @@
             </ul>
             {{end}}
         </ul>
+    {{end}}
     {{if .Summer.Term}}
     </ul>
         <ul>
