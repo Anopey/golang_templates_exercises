@@ -6,11 +6,48 @@
 </head>
 <body>
 
+<ul>
 {{range .}}
 
-<!-- PUT YOUR CODE HERE TO SHOW THE DATA-->
-
+    <li> {{.AcaYear}} </li>
+    <ul>
+        <li> {{.Fall.Term}} </li>
+        <ul>
+            {{range .Fall.Courses}}
+            <li> {{.Number }} </li>
+            <ul>
+                <li> Name: {{.Name}} </li>
+                <li> Units: {{.Units}} </li>
+            </ul>
+            {{end}}
+        </ul>
+    </ul>
+    <ul>
+        <li> {{.Spring.Term}} </li>
+        <ul>
+            {{range .Spring.Courses}}
+            <li> {{.Number }} </li>
+            <ul>
+                <li> Name: {{.Name}} </li>
+                <li> Units: {{.Units}} </li>
+            </ul>
+            {{end}}
+        </ul>
+    </ul>
+        <ul>
+        <li> {{.Summer.Term}} </li>
+        <ul>
+            {{range .Summer.Courses}}
+            <li> {{.Number }} </li>
+            <ul>
+                <li> Name: {{.Name}} </li>
+                <li> Units: {{.Units}} </li>
+            </ul>
+            {{end}}
+        </ul>
+    </ul>
 {{end}}
+</ul>
 
 </body>
 </html>
