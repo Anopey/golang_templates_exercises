@@ -6,9 +6,8 @@
 </head>
 <body>
 
-<ul>
 {{range .}}
-
+<ul>
     <li> {{.AcaYear}} </li>
     {{if .Fall.Term}}
     <ul>
@@ -37,9 +36,9 @@
             {{end}}
         </ul>
     {{end}}
-    {{if .Summer.Term}}
     </ul>
-        <ul>
+    {{if .Summer.Term}}
+    <ul>
         <li> {{.Summer.Term}} </li>
         <ul>
             {{range .Summer.Courses}}
@@ -52,8 +51,7 @@
         </ul>
     </ul>
     {{end}}
-{{end}}
 </ul>
-
+{{end}}
 </body>
 </html>
