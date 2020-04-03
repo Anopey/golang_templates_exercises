@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<b> Welcome to our badly managed restuarant! Here is our menu: </b>
+
+<br>
+
+{{range .}}
+<ul>
+    <li> {{.SectionName}} </li>
+    <ul>
+    {{range .Dishes}}
+        <li> {{.Name}} - {{.Price}} </li>
+    {{end}}
+    </ul>
+</ul>
+{{end}}
+
+</body>
+</html>
