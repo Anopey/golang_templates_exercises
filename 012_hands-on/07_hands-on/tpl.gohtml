@@ -6,11 +6,13 @@
 </head>
 <body>
 
-<b> Welcome to our badly managed restuarant! Here is our menu: </b>
+{{range .}}
 
+<b> {{.Name}} </b>
+{{.Descrip}}
 <br>
 
-{{range .}}
+{{range .MenuSections}}
 <ul>
     <li> {{.SectionName}} </li>
     <ul>

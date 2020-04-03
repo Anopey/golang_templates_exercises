@@ -12,6 +12,12 @@ func init() {
 	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
 }
 
+type restuarant struct {
+	Descrip      string
+	Name         string
+	MenuSections []menuSection
+}
+
 type dish struct {
 	Price float32
 	Name  string
@@ -61,42 +67,71 @@ func main() {
 			Name:  "Restuarant",
 		},
 	}
-
-	var menuSections = []menuSection{
-		menuSection{
-			SectionName: "Breakfast",
-			Dishes: []dish{
-				foods["Eggs"],
-				foods["Toast"],
-				foods["Coffee"],
-				foods["Breakfast Plate"],
-				foods["Restuarant"],
+	var restuarants = []restuarant{
+		{
+			Descrip: "Welcome to our badly managed restuarant! Here is our menu:",
+			Name:    "All-Cuisine Restuarant",
+			MenuSections: []menuSection{
+				menuSection{
+					SectionName: "Breakfast",
+					Dishes: []dish{
+						foods["Eggs"],
+						foods["Toast"],
+						foods["Coffee"],
+						foods["Breakfast Plate"],
+						foods["Restuarant"],
+					},
+				},
+				menuSection{
+					SectionName: "Lunch",
+					Dishes: []dish{
+						foods["Kebab"],
+						foods["Toast"],
+						foods["Coffee"],
+						foods["Hambaga"],
+						foods["Pizza"],
+						foods["Restuarant"],
+					},
+				},
+				menuSection{
+					SectionName: "Dinner",
+					Dishes: []dish{
+						foods["Kebab"],
+						foods["Sushi"],
+						foods["Hambaga"],
+						foods["Pizza"],
+						foods["Restuarant"],
+					},
+				},
 			},
 		},
-		menuSection{
-			SectionName: "Lunch",
-			Dishes: []dish{
-				foods["Kebab"],
-				foods["Toast"],
-				foods["Coffee"],
-				foods["Hambaga"],
-				foods["Pizza"],
-				foods["Restuarant"],
-			},
-		},
-		menuSection{
-			SectionName: "Dinner",
-			Dishes: []dish{
-				foods["Kebab"],
-				foods["Sushi"],
-				foods["Hambaga"],
-				foods["Pizza"],
-				foods["Restuarant"],
+		{
+			Name:    "Minimalistic Restuarant",
+			Descrip: "The restuarant where you can eat without a thought.",
+			MenuSections: []menuSection{
+				menuSection{
+					SectionName: "Breakfast",
+					Dishes: []dish{
+						foods["Breakfast Plate"],
+					},
+				},
+				menuSection{
+					SectionName: "Lunch",
+					Dishes: []dish{
+						foods["Kebab"],
+					},
+				},
+				menuSection{
+					SectionName: "Dinner",
+					Dishes: []dish{
+						foods["Sushi"],
+					},
+				},
 			},
 		},
 	}
 
-	err := tpl.Execute(os.Stdout, menuSections)
+	err := tpl.Execute(os.Stdout, restuarants)
 	if err != nil {
 		log.Fatalln(err)
 		panic("oh noes!")
