@@ -9,7 +9,7 @@ import (
 var tpl *template.Template
 
 func init() {
-	template.Must(template.ParseFiles("tpl.gohtml"))
+	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
 }
 
 type dish struct {
