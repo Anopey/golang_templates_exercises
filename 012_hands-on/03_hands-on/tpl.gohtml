@@ -8,9 +8,9 @@
 
 {{range .}}
 <ul>
-    <li> {{Name}} </li>
+    <li> {{.Name}} </li>
     <ul>
-        <li> {{Address}}, {{City}}/{{HotelRegion}} California, {{Zip}} </li>
+        <li> {{.Address}}, {{.City}}/{{.HotelRegion}} California, {{.Zip}} </li>
     </ul>
 </ul>
 {{end}}
