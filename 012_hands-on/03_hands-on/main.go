@@ -1,6 +1,10 @@
 package main
 
-import "text/template"
+import (
+	"log"
+	"os"
+	"text/template"
+)
 
 const (
 	//Southern signifies southern California
@@ -26,5 +30,25 @@ func init() {
 }
 
 func main() {
+	hotels := []hotel{
+		hotel{
+			Name:        "Hotel California",
+			Address:     "42 Sunset Boulevard",
+			City:        "Los Angeles",
+			Zip:         "95612",
+			HotelRegion: Southern,
+		},
+		hotel{
+			Name:        "H",
+			Address:     "4",
+			City:        "L",
+			Zip:         "95612",
+			HotelRegion: Southern,
+		},
+	}
 
+	err := tpl.Execute(os.Stdout, hotels)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
